@@ -4,7 +4,7 @@
 [![Rust](https://github.com/rtk-rs/binex/actions/workflows/daily.yml/badge.svg)](https://github.com/rtk-rs/binex/actions/workflows/daily.yml) [![crates.io](https://img.shields.io/crates/v/binex.svg)](https://crates.io/crates/binex) 
 [![crates.io](https://docs.rs/binex/badge.svg)](https://docs.rs/binex/badge.svg)
 
-[![License](https://img.shields.io/badge/license-MPL_2.0-orange?style=for-the-badge&logo=mozilla)](https://github.com/rtk-rs/sp3/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-MPL_2.0-orange?style=for-the-badge&logo=mozilla)](https://github.com/rtk-rs/binex/blob/main/LICENSE)
 
 BINEX is a simple library to decode and encode BINEX messages.  
 BINEX stands for BINary EXchange and is the "real time" stream oriented
