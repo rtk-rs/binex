@@ -29,6 +29,8 @@ jobs:
           cargo publish --allow-dirty
   
   build:
+    name: Build
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
