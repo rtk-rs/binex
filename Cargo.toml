@@ -10,6 +10,9 @@ keywords = ["geo", "gps", "galileo"]
 categories = ["science", "science::geo", "parsing"]
 edition = "2021"
 rust-version = "1.64"
+exclude = [
+    "data/*",
+]
 
 [features]
 default = ["flate2"]
