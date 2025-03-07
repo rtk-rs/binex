@@ -43,12 +43,13 @@ that it cannot interprate:
 
 ```rust
 use std::fs::File;
+use flate2::read::GzDecoder;
 use binex::prelude::{Decoder, StreamElement, Provider, Error};
 
-let fd = File::open("data/mfle20190130.bnx")
+let fd = File::open("data/BIN/mfle20200105.bnx.gz")
     .unwrap();
 
-let mut decoder = Decoder::new(fd);
+let mut decoder = Decoder::new(GzDecoder::new(fd));
 
 loop {
     match decoder.next() {
