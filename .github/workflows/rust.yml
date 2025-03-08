@@ -18,6 +18,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Submodule
+      run: git submodule update
     - name: Build
       run: cargo build
     - name: Build
