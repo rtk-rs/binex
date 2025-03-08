@@ -59,46 +59,8 @@ pub struct Decoder<'a, R: Read> {
 
 impl<'a, R: Read> Decoder<'a, R> {
     /// Creates a new BINEX [Decoder] from [R] readable interface,
-    /// ready to parse incoming bytes.
-    /// ```
-    /// use std::fs::File;
-    /// use binex::prelude::{Decoder, Error};
-    ///
-    /// // Create the Decoder:
-    /// //  * works from our local source
-    /// //  * needs to be mutable due to iterating process
-    /// let mut fd = File::open("data/mfle20190130.bnx")
-    ///     .unwrap();
-    ///
-    /// // Two generics: with M the internal buffer depth
-    /// let mut decoder = Decoder::new(fd);
-    ///
-    /// // Consume data stream
-    /// loop {
-    ///     match decoder.next() {
-    ///         Some(Ok(msg)) => {
-    ///             // do something
-    ///         },
-    ///         Some(Err(e)) => match e {
-    ///             Error::IoError => {
-    ///                 // any I/O error should be handled
-    ///                 // and user should react accordingly,
-    ///                 break;
-    ///             },
-    ///             Error::ReversedStream => {
-    ///                 // this library is currently limited:
-    ///                 //  - reversed streams are not supported yet
-    ///                 //  - little endian streams are not supported yet
-    ///             },
-    ///             _ => {},
-    ///         },
-    ///         None => {
-    ///             // End of stream!
-    ///             break;
-    ///         },
-    ///     }
-    /// }
-    /// ```
+    /// ready to parse incoming bytes. We only host gzip compressed
+    /// BINEX files, refer to [Decoder::new_gzip] for an example.
     pub fn new(reader: R) -> Self {
         Self {
             eos: false,
@@ -116,15 +78,16 @@ impl<'a, R: Read> Decoder<'a, R> {
     /// interface, that must stream Gzip encoded bytes.
     /// ```
     /// use std::fs::File;
+    /// use flate2::read::GzDecoder;
     /// use binex::prelude::{Decoder, Error};
     ///
     /// // Create the Decoder:
     /// //  * works from our local source
     /// //  * needs to be mutable due to iterating process
-    /// let mut fd = File::open("data/mfle20200105.bnx.gz")
+    /// let mut fd = File::open("data/BIN/mfle20200105.bnx.gz")
     ///     .unwrap();
     ///
-    /// let mut decoder = Decoder::new(fd);
+    /// let mut decoder = Decoder::new(GzDecoder::new(fd));
     ///
     /// // Consume data stream
     /// loop {
