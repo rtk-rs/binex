@@ -2,6 +2,13 @@
 #![doc = include_str!("../README.md")]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+/*
+ * BINEX is part of the rtk-rs framework.
+ * Authors: Guillaume W. Bres <guillaume.bressaix@gmail.com> et al.
+ * (cf. https://github.com/rtk-rs/binex/graphs/contributors)
+ * This framework is shipped under Mozilla Public V2 license.
+ */
+
 use thiserror::Error;
 
 mod decoder;
