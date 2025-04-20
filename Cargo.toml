@@ -27,7 +27,8 @@ md-5 = "0.10"
 thiserror = "2"
 lazy_static = "1.4"
 flate2 = { version = "1.0.34", optional = true }
-hifitime = { version = "4.0", features = ["serde", "std"] }
+
+hifitime = { git = "https://github.com/nyx-space/hifitime", branch = "master", features = ["serde", "std"] }
 
 [dev-dependencies]
 criterion = "0.5.1"
