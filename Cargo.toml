@@ -3,23 +3,26 @@ name = "binex"
 version = "0.4.2"
 license = "MPL-2.0"
 authors = ["Guillaume W. Bres <guillaume.bressaix@gmail.com>"]
-description = "BINEX (Binary EXchange) encoder and decoder for GNSS"
+description = "BINEX (Binary EXchange) encoder and decoder for real-time GNSS"
 homepage = "https://github.com/rtk-rs"
 repository = "https://github.com/rtk-rs/binex"
 keywords = ["geo", "gps", "galileo"]
 categories = ["science", "science::geo", "parsing"]
 edition = "2021"
-rust-version = "1.64"
+
 exclude = [
     "data/*",
 ]
 
-[features]
-default = ["flate2"]
+[package.metadata]
+msrv = "1.82"
 
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "docrs", "--generate-link-to-definition"]
+
+[features]
+default = ["flate2"]
 
 [dependencies]
 log = "0.4"
@@ -27,8 +30,7 @@ md-5 = "0.10"
 thiserror = "2"
 lazy_static = "1.4"
 flate2 = { version = "1.0.34", optional = true }
-
-hifitime = { git = "https://github.com/nyx-space/hifitime", branch = "master", features = ["serde", "std"] }
+hifitime = { version = "4.1.0", features = ["serde", "std"] }
 
 [dev-dependencies]
 criterion = "0.5.1"
