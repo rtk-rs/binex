@@ -33,7 +33,7 @@ flate2 = { version = "1.0.34", optional = true }
 hifitime = { version = "4.1.0", features = ["serde", "std"] }
 
 [dev-dependencies]
-criterion = "0.5.1"
+criterion = "0.6.0"
 
 [[bench]]
 name = "encoding"
